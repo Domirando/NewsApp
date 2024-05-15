@@ -1,5 +1,6 @@
 package domirandos.app.myapplication.screens.details
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,6 +18,7 @@ import domirandos.app.myapplication.screens.home.HomeViewModel
 
 @Composable
 fun DetailsView(viewModel: DetailsViewModel, id:Int,navController: NavController) {
+    Log.d("id", id.toString())
 //    val list = viewModel.post.collectAsState().value
 
 //    Column(

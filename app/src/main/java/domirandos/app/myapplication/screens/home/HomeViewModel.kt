@@ -28,6 +28,11 @@ class HomeViewModel(val model: HomeModel):ViewModel() {
             _posts.value = model.searchPosts(name)
         }
     }
+    fun getPost(id:Int){
+        viewModelScope.launch {
+            _posts.value = model.getPost(id)
+        }
+    }
     init{
         getAllPosts()
     }

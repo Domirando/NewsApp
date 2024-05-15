@@ -1,5 +1,7 @@
 package domirandos.app.myapplication.item
 
+import android.os.Bundle
+import android.provider.Settings.Global.putString
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.navArgument
 import domirandos.app.myapplication.model.Post
 import domirandos.app.myapplication.navigation.Screens
 
@@ -30,13 +33,13 @@ fun PostItem(post: Post, navController: NavController) {
     val initialText = post.tags.joinToString(separator = ", ") // Join tags with comma separator
 
     val textFieldValue = remember { mutableStateOf(initialText) }
-
+    val postId = post.id
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(15.dp)
             .clickable {
-//            navController.navigate(Screens.DetailsView.route)
+            navController.navigate(Screens.DetailsView.route, postId)
             }
         ,
         shape = RoundedCornerShape(8.dp)
@@ -55,7 +58,6 @@ fun PostItem(post: Post, navController: NavController) {
                 onValueChange = { /* TODO: Handle description change */ },
                 modifier = Modifier.fillMaxWidth(),
                 enabled = false
-
             )
 
 
